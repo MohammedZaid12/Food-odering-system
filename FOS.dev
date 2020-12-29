@@ -1,6 +1,6 @@
 [Project]
-FileName=FOS-C.dev
-Name=FOS-C
+FileName=FOS.dev
+Name=FOS
 Type=1
 Ver=2
 ObjFiles=
@@ -13,7 +13,7 @@ Compiler=
 CppCompiler=
 Linker=
 IsCpp=0
-Icon=
+Icon=FOS.ico
 ExeOutput=
 ObjectOutput=
 LogOutput=
