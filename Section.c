@@ -1,5 +1,5 @@
-struct Section{
-	int sectionId;
-	char[20] sectionName;
-};
+//struct Section{
+//	int sectionId;
+//	char[20] sectionName;
+//};
 
