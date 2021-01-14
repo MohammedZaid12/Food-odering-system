@@ -10,27 +10,31 @@ struct Item{
 	
 	
 };
+
+struct Item items[16]={{1,"po1","Starters",0,"",1},
+					  {2,"co1","Garlic Bread",200,"po1",0},
+					  {3,"co2","Crackers",150,"po1",0},
+					  {4,"co3","Cheese balls",250,"po1",0},
+					  {5,"co4","Peri bites",400,"po1",0},
+					  {6,"po2","Fast Foods",0,"",1},
+					  {7,"co5","Chicken Roll",150,"po2",0},
+					  {8,"co6","Grilled Burger",450,"po2",0},
+					  {9,"co7","Pizza",700,"po2",0},
+					  {10,"co8","Alfredo Pasta",600,"po2",0},
+					  {11,"po3","BBQ",0,"",0},
+					  {12,"co9","Tikka Boti",450,"po3",0},
+					  {13,"co10","Malai Boti",500,"po3",0},
+					  {14,"c011","Seekh Kabab",450,"po3",0},
+					  {15,"co12","Behari Boti",550,"po3",0},
+					  {16,"co13","Rashmi Kabab",600,"po3",0}};
 void menu()
 {
 int i;
-struct Item items[2]={{1,"","Starters",0,"p01",1},
-					  {2,"co1","Garlic Bread",200,"",0},
-					  {3,"co2","Crackers",150,"",0},
-					  {4,"c03","Cheese balls",250,"",0},
-					  {5,"co4","Peri bites",400,"",0},
-					  {6,,"Fast Foods",0,"p02",1},
-					  {7,"c05","Chicken Roll",150,"",0},
-					  {8,"c06","Grilled Burger",450,"",0},
-					  {9,"c07","Pizza",700,"",0},
-					  {10,"c08","Alfredo Pasta",600,"",0},
-					  {11,"","BBQ",0,"p03",0},
-					  {12,"c09","Tikka Boti",450,,0},
-					  {13,"c10","Malai Boti",500,,0},
-					  {14,"c11","Seekh Kabab",450,,0},
-					  {15,"c12","Behari Boti",550,,0},
-					  {16,"c13","Rashmi Kabab",600,,0}};
+for(i=0;i<16;i++)
+{
 
 printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+}
 //	id:11,
 //    code:'PO7',
 //    name:'fAST fOOD',
