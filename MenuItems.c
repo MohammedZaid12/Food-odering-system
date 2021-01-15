@@ -29,12 +29,35 @@ struct Item items[16]={{1,"po1","Starters",0,"",1},
 					  {16,"co13","Rashmi Kabab",600,"po3",0}};
 void menu()
 {
-int i;
-for(i=0;i<16;i++)
+int i,input;
+printf("\n1: Starters\n6:Fast Foods\n11:BBQ\n");
+scanf("%d",&input);
+if (input==1)
 {
-
-printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+	for (i=0;i<5;i++)
+	{
+		printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+	}
 }
+else if (input==6)
+{
+	for (i=5;i<10;i++)
+	{
+		printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+	}
+}
+else if (input==11)
+{
+	for (i=10;i<16;i++)
+	{
+		printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+	}
+}
+//for(i=0;i<16;i++)
+//{
+//
+//printf("\n%d\t%s\t%d",items[i].Id,items[i].name,items[i].price);
+//}
 //	id:11,
 //    code:'PO7',
 //    name:'fAST fOOD',
