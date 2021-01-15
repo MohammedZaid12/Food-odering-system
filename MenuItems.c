@@ -37,9 +37,6 @@ void filterByParent(){
 	char name[20];
 	char code[20];
 	for (i=0;i<16;i++){
-//		if(items[i].Id == input){
-//		printf("\n\t%d\t%s",items[i].Id,items[i].name);		
-//		}
 		if(items[i].isparent == 1){
 		printf("\n%d\t%d\t%s",serialNumber,items[i].Id,items[i].name);	
 		serialNumber++;
@@ -54,19 +51,18 @@ void filterByParent(){
 	
 }
 void menu(){
-		int i ,j, input , serialNumber=1 , flag = 0 ;
+		int i=0 ,j, input , serialNumber=1 , flag = 0 ;
 		char name[20];
 		char code[20];
 		printf("\nEnter Your Choice \n");
 		scanf("%d",&input);
 		while(flag !=1){
-				for (i=0;i<16;i++){
-		
 			if(items[i].Id == input){
 			flag = 1;
 			selectChildByParentCode(items[i].code);
 		}
-	}
+		i++;
+		
 }
 	
 	
