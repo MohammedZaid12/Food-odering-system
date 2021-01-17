@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(int argc, char** argv) {
-	menu();
+	filterByParent();
+	cart();
 	return 0;
 }
 
