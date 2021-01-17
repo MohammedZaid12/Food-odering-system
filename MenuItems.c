@@ -62,10 +62,7 @@ void menu(){
 			selectChildByParentCode(items[i].code);
 		}
 		i++;
-		
 }
-	
-	
 }
 
 void selectChildByParentCode(char code[20]){
@@ -77,5 +74,4 @@ void selectChildByParentCode(char code[20]){
 		serialNumber++;
 		}
 }
-
 }

@@ -1,13 +1,15 @@
-//struct Cart{
-//	int cartId;
-//	int userId ; (optional)
-//	struct CartItems{
-//		int ItemId;
-//		char[20] itemName;
-//		int ItemPrice;
-//	
-//	};
-//	int totalPrice;
-//int status
-//};
-
+struct Cart{
+	int cartId;
+	struct CartItems{
+		int ItemId; 
+		char ItemName[20];
+		int ItemPrice;
+	
+	};
+	int totalPrice;
+int status
+}var;		 
+void add_to_cart(struct Cart cart_items[])
+{
+	var.cartId=cart_items.
+}
