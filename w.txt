@@ -1,2 +1,4 @@
 
-1	7	Chicken Roll	150	150
+0	0	Garlic Bread	0	400
+0	0	Crackers	0	150
+0	0	Malai Boti	0	650

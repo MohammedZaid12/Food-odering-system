@@ -14,23 +14,27 @@ struct Cart{
 	int totalPrice;
 int status;
 };	
+struct Cart cartArray;		
 
 
-void cart(int Id1   , int price1  , char name1[50]){
+void cart(int itemId   , int itemPrice  , char itemName[50]){
+		FILE *fp;
+	fp = fopen(INPUT_FILE,"a");
+
 	int flag=0;
 	fflush(stdin);
 	int serial=1,totalPrice=0,status=1,i=0;
 	fflush(stdin);
-	struct Cart cartArray[] = {{ serial, {Id1,"",price1} , totalPrice , status}};		
-	strcpy(cartArray[i].cartItems.ItemName , name1);
-	cartArray[i].totalPrice +=price1;
-	printf("\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
+	strcpy(cartArray.cartItems.ItemName , itemName);
+	cartArray.totalPrice +=itemPrice;
 	fflush(stdin);
-	FILE *fp;
-	fp = fopen(INPUT_FILE,"w");
-	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
+	fflush(stdin);
+	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray.cartId, cartArray.cartItems.ItemId , cartArray.cartItems.ItemName , cartArray.cartItems.ItemPrice ,cartArray.totalPrice);	
 	fclose(fp);
-	
+//	fp = fopen(INPUT_FILE,"w");
+//	fscanf(fp,"\n%d\t%d\t%s\t%d\t%d",&cartArray.cartId,&cartArray.cartItems.ItemId ,&cartArray.cartItems.ItemName ,&cartArray.cartItems.ItemPrice ,&cartArray.totalPrice);		
+//	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray.cartId, cartArray.cartItems.ItemId , cartArray.cartItems.ItemName , cartArray.cartItems.ItemPrice ,cartArray.totalPrice);		
+//	
 
 }
 
