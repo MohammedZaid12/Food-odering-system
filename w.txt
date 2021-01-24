@@ -1,2 +1,2 @@
 
-1	3	Crackers	150	150
+1	7	Chicken Roll	150	150

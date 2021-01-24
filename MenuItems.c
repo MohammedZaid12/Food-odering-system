@@ -12,20 +12,6 @@ struct Item{
 	
 	
 };
-	struct CartItems{
-		int ItemId; 
-		char ItemName[50];
-		int ItemPrice;
-	
-	};				  
-		
-struct Cart{
-	int cartId;
-	struct CartItems cartItems;
-	int totalPrice;
-int status;
-};	
-
  
 struct Item items[16]={
 					  {1,"po1","Starters",0,"",1},
@@ -46,9 +32,11 @@ struct Item items[16]={
 					  {16,"co13","Rashmi Kabab",600,"po3",0}	  
 					  };
 
+int check=0;
 void selectChildByParentCode(char code[20]);					  
 
 void filterByParent(){
+	while(check !=1){
 	int i ,j, input , serialNumber=1;
 	char name[20];
 	char code[20];
@@ -60,16 +48,19 @@ void filterByParent(){
 		serialNumber++;
 		}
 	}
-	
-	menu();
-	
 
-//	FILE *fp;      /*file display*/
-//	fp = fopen(INPUT_FILE,"w");
-//	fscanf(fp,"\n%d\t%d\t%s\t%d\t%d",&cartArray[i].cartId,&cartArray[i].cartItems.ItemId ,cartArray[i].cartItems.ItemName,&cartArray[i].cartItems.ItemPrice,&cartArray[i].totalPrice);		
-//	fprintf("\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
-//	
+	menu();
+	printf("\nPress 1 to exit\nPress 0 to repeat");
+		scanf("%d",&input);
+		if(input == 1){
+			check=1;
+		}	
+	}
+	
+	
+		
 }
+
 void menu(){
 		int i=0 ,j, input , serialNumber=1 , flag = 0 ;
 		char name[20];
@@ -89,7 +80,6 @@ void selectChildByParentCode(char code[20]){
 		fflush(stdin);
 		int i , input , serialNumber=1,flag=0;	
 		int error;
-while(flag !=1){
 		for (i=0;i<16;i++){
 		if(strcmp(items[i].parentCode , code) == 0){
 		printf("\n%d\t%s\t%d",items[i].Id,items[i].name, items[i].price);	
@@ -97,16 +87,10 @@ while(flag !=1){
 		fflush(stdin);
 		}
 }
-
 		printf("\nEnter Your choice");
 		scanf("%d",&error);
 		selectChildById(error);
-		printf("\nPress 1 to exit\nPress 0 to repeat");
-		scanf("%d",&input);
-		if(input == 1){
-			flag=1;
-		}
-	}
+	
 }
 void selectChildById(int Id){
 	int i;
@@ -117,28 +101,6 @@ void selectChildById(int Id){
 	}
 	
 }
-}
-void cart(int Id1   , int price1  , char name1[50]){
-	int flag=0;
-	fflush(stdin);
-	int serial=1,totalPrice=0,status=1,i=0;
-	fflush(stdin);
-//	struct Cart cartArray[10];
-//	while(flag !=1){
-	struct Cart cartArray[] = {{ serial, {Id1,"",price1} , totalPrice , status}};		
-	strcpy(cartArray[i].cartItems.ItemName , name1);
-	cartArray[i].totalPrice +=price1;
-	printf("\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
-	fflush(stdin);
-	FILE *fp;
-	fp = fopen(INPUT_FILE,"w");
-	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
-	fclose(fp);
-	
-//	i++;	
-//}
-
-
 }
 
 
