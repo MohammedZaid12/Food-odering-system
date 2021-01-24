@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define INPUT_FILE"example.dat"
 struct Cart{
 	int cartId;
 	struct CartItems{
@@ -9,6 +12,7 @@ struct Cart{
 	int totalPrice;
 int status;
 }var;
+
 		 
 //void add_to_cart(struct Cart cart_items[])
 //{

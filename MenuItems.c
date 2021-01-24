@@ -1,6 +1,6 @@
 #include<stdio.h>  
 #include <string.h>
- 
+#define INPUT_FILE"w.txt"
 #include<stdlib.h> 
 struct Item{
 	int Id;
@@ -64,9 +64,11 @@ void filterByParent(){
 	menu();
 	
 
-	
-	
-	
+//	FILE *fp;      /*file display*/
+//	fp = fopen(INPUT_FILE,"w");
+//	fscanf(fp,"\n%d\t%d\t%s\t%d\t%d",&cartArray[i].cartId,&cartArray[i].cartItems.ItemId ,cartArray[i].cartItems.ItemName,&cartArray[i].cartItems.ItemPrice,&cartArray[i].totalPrice);		
+//	fprintf("\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
+//	
 }
 void menu(){
 		int i=0 ,j, input , serialNumber=1 , flag = 0 ;
@@ -126,10 +128,17 @@ void cart(int Id1   , int price1  , char name1[50]){
 	struct Cart cartArray[] = {{ serial, {Id1,"",price1} , totalPrice , status}};		
 	strcpy(cartArray[i].cartItems.ItemName , name1);
 	cartArray[i].totalPrice +=price1;
-	printf("\n%d\t%d\t%s\t%d\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice,cartArray[i].status);		
+	printf("\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
 	fflush(stdin);
+	FILE *fp;
+	fp = fopen(INPUT_FILE,"w");
+	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);		
+	fclose(fp);
+	
 //	i++;	
 //}
 
+
 }
+
 
