@@ -43,9 +43,7 @@ void filterByParent(){
 	for (i=0;i<16;i++){
 		
 		if(items[i].isparent == 1){
-		
 		printf("\n%d\t%s",items[i].Id , items[i].name);
-		serialNumber++;
 		}
 	}
 
@@ -68,9 +66,14 @@ void menu(){
 		printf("\nEnter Your Choice \n");
 		scanf("%d",&input);
 		while(flag !=1){
-			if(items[i].Id == input){
+			if(items[i].Id == input  && items[i].isparent == 1 ) {
 			flag = 1;
 			selectChildByParentCode(items[i].code);
+		}
+		else{
+		printf("Please enter again");
+		flag=1;
+		filterByParent();
 		}
 		i++;
 }
@@ -78,26 +81,38 @@ void menu(){
 
 void selectChildByParentCode(char code[20]){
 		fflush(stdin);
+		char myCode[20];
 		int i , input , serialNumber=1,flag=0;	
 		int error;
 		for (i=0;i<16;i++){
 		if(strcmp(items[i].parentCode , code) == 0){
+		strcpy(myCode,items[i].parentCode);
 		printf("\n%d\t%s\t%d",items[i].Id,items[i].name, items[i].price);	
 		serialNumber++;
 		fflush(stdin);
 		}
+//		else{
+//				printf("wrong input");
+//		}
 }
 		printf("\nEnter Your choice");
 		scanf("%d",&error);
-		selectChildById(error);
+		selectChildById(error,myCode);
 	
 }
-void selectChildById(int Id){
+void selectChildById(int Id, char code[20]){
 	int i;
 	
 	for (i=0;i<16;i++){
-	if(items[i].Id == Id){
+	if(items[i].Id == Id && items[i].isparent==0){
 		cart(items[i].Id  , items[i].price  , items[i].name);
+	}
+	else
+	{
+		printf("wrong input");
+		i=17;
+		selectChildByParentCode(code);
+		
 	}
 	
 }

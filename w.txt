@@ -1,4 +1,9 @@
 
-0	0	Garlic Bread	0	400
-0	0	Crackers	0	150
-0	0	Malai Boti	0	650
+0	0	Garlic Bread	0	200
+0	0	BBQ	0	200
+0	2	Garlic Bread	200	200
+0	11	BBQ	0	200
+0	12	Tikka Boti	450	650
+0	2	Garlic Bread	200	850
+0	7	Chicken Roll	150	150
+0	7	Chicken Roll	150	150
