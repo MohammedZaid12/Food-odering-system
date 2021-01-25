@@ -7,3 +7,6 @@
 0	2	Garlic Bread	200	850
 0	7	Chicken Roll	150	150
 0	7	Chicken Roll	150	150
+0	7	Chicken Roll	150	150
+0	5	Peri bites	400	550
+0	12	Tikka Boti	450	450

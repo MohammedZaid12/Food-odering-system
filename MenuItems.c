@@ -33,7 +33,10 @@ struct Item items[16]={
 					  };
 
 int check=0;
-void selectChildByParentCode(char code[20]);					  
+void selectChildByParentCode(char code[20]);
+void menu();					  
+void filterByParent();
+void selectChildById(int Id, char code[20]);
 
 void filterByParent(){
 	while(check !=1){
@@ -65,18 +68,25 @@ void menu(){
 		char code[20];
 		printf("\nEnter Your Choice \n");
 		scanf("%d",&input);
-		while(flag !=1){
-			if(items[i].Id == input  && items[i].isparent == 1 ) {
-			flag = 1;
+		while(flag != 1){
+		if(items[i].Id == input){
+			
+			if(items[i].isparent == 1){
+			flag = 1;		
 			selectChildByParentCode(items[i].code);
-		}
-		else{
-		printf("Please enter again");
-		flag=1;
-		filterByParent();
-		}
+			}
+			else{
+				printf("Please enter again");
+				flag = 1;		
+				filterByParent();
+			}
+			
+		}		
+		
 		i++;
+		
 }
+
 }
 
 void selectChildByParentCode(char code[20]){
@@ -102,20 +112,19 @@ void selectChildByParentCode(char code[20]){
 }
 void selectChildById(int Id, char code[20]){
 	int i;
-	
 	for (i=0;i<16;i++){
-	if(items[i].Id == Id && items[i].isparent==0){
-		cart(items[i].Id  , items[i].price  , items[i].name);
-	}
-	else
-	{
+	if(items[i].Id == Id ){
+		if(items[i].isparent==0){
+			cart(items[i].Id  , items[i].price  , items[i].name);
+		}
+		else{
 		printf("wrong input");
 		i=17;
 		selectChildByParentCode(code);
-		
+		}
 	}
 	
-}
+ }
 }
 
 
