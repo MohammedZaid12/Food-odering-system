@@ -53,9 +53,13 @@ void filterByParent(){
 	menu();
 	printf("\nPress 1 to exit\nPress 0 to repeat");
 		scanf("%d",&input);
+		
 		if(input == 1){
 			check=1;
-		}	
+			printf("Your order is\n");
+			fileRead();
+		}
+		
 	}
 	
 	
@@ -126,5 +130,3 @@ void selectChildById(int Id, char code[20]){
 	
  }
 }
-
-
