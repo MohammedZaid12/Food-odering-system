@@ -14,46 +14,99 @@ struct Cart{
 	int totalPrice;
 int status;
 };	
-struct Cart cartArray;		
+struct Cart cartArray[100];		
 
 
 void cart(int itemId   , int itemPrice  , char itemName[50]){
+int serial=1,totalPrice=0,status=1,i=0;
 	FILE *fp;
 	fp = fopen(INPUT_FILE,"a");
 	int flag=0;
-	cartArray.cartId++;
+	cartArray[i].cartId++;
+//	fflush(stdin);
+//	
+//	fflush(stdin);
+	strcpy(cartArray[i].cartItems.ItemName , itemName);
+	cartArray[i].cartItems.ItemId = itemId;
+	cartArray[i].cartItems.ItemPrice = itemPrice;
+	cartArray[i].totalPrice +=itemPrice;
 	fflush(stdin);
-	int serial=1,totalPrice=0,status=1,i=0;
 	fflush(stdin);
-	strcpy(cartArray.cartItems.ItemName , itemName);
-	cartArray.cartItems.ItemId = itemId;
-	cartArray.cartItems.ItemPrice = itemPrice;
-	cartArray.totalPrice +=itemPrice;
-	fflush(stdin);
-	fflush(stdin);
-	fprintf(fp,"\n%d\t%d\t%s\t%d\t%d",cartArray.cartId, cartArray.cartItems.ItemId , cartArray.cartItems.ItemName , cartArray.cartItems.ItemPrice ,cartArray.totalPrice);	
+	fprintf(fp,"%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);	
 	fclose(fp);
-	
+
 }
 
 void fileRead()
 {
 	FILE *fp;
-	 int c;
-  
+	 int r=0,i;
+	char ch;
    fp = fopen(INPUT_FILE,"r");
-   if(fp == NULL) {
-      perror("Error in opening file");
-      return(-1);
-   }
-   
-   while(1) {
-      c = fgetc(fp);
-      if( feof(fp) ) { 
-         break ;
+   if(fp == NULL)
+    {
+
+        printf("\nCan't open file");
+    }
+
+    else
+    {
+
+      do
+
+      {
+          if(feof(fp))
+          {
+              break;
+
+
+          }
+      else
+      {
+
+          ch = fgetc(fp);
+          if(ch == '\n')
+          {
+
+              r++;
+          }
+
+
+
+      }}while(1);
+     
+      rewind(fp);
+
+      printf("\nID\tNAME\tPrice\tTotal price\n");
+
+      for(i=0;i<r;i++)
+      {
+
+          fscanf(fp,"%d\t%d\t%s\t%d\t%d\n",&cartArray[i].cartId, &cartArray[i].cartItems.ItemId , &cartArray[i].cartItems.ItemName , &cartArray[i].cartItems.ItemPrice ,&cartArray[i].totalPrice);
+
+          printf("%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);
+          }
       }
-        printf("%c", c);
-   }
-   fclose(fp);
+
+
+ fclose(fp);
+
 }
+
+//   if(fp == NULL) {
+//      perror("Error in opening file");
+//      return(-1);
+//   }
+//   
+//   while(1) {
+//      c = fgetc(fp);
+//      if( feof(fp) ) { 
+//         break ;
+//      }
+//        printf("%c", c);
+//   }
+//   fclose(fp);
+
+
+
 
