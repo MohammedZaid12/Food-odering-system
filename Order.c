@@ -7,7 +7,7 @@ struct CartItems{
 		int ItemPrice;
 	
 };				  
-		
+
 struct Cart{
 	int cartId;
 	struct CartItems cartItems;
@@ -17,6 +17,13 @@ int status;
 	
 int total,r=0,i;
 char name[20],number[20],address[50];
+struct order_array{
+int orderid;
+int itemid;
+char Name[20];
+int itemprice; 
+int totalprice;
+}arr[100];
 struct Order{
 char name[20];
 char contact[20];
@@ -36,8 +43,8 @@ int totalPrice;
 //	strcpy(order.address,address);
 //	printf("\n%s\n%s\n%s",order.name,order.contact,order.address);
 		  
-	
-
+int cid,id,price,total;
+char Name[20];
 void OrderDisplay()
 {
   FILE *fp, *f1;
@@ -78,17 +85,24 @@ void OrderDisplay()
       rewind(fp);
 
       printf("\n");
-
+fflush(stdin);
+fflush(stdin);
       for(i=0;i<r;i++)
 		{
-	fscanf(f1,"%d\t%d\t%s\t%d\t%d\n",&cartArray[i].cartId,&cartArray[i].cartItems.ItemId ,&cartArray[i].cartItems.ItemName ,&cartArray[i].cartItems.ItemPrice ,&cartArray[i].totalPrice);
+			fflush(stdin);
+			
+		//	printf("%d\t%d\t%s\t%d\n",arr[i].orderid,arr[i].itemid,arr[i].Name,arr[i].itemprice);
+	fscanf(f1,"%d%d%s%d\n",&arr[i].orderid,&arr[i].itemid,&arr[i].Name,&arr[i].itemprice);
+    
+      
+	//fscanf(f1,"%d\t%d\t%s\t%d\t%d\n",&cartArray[i].cartId,&cartArray[i].cartItems.ItemId ,&cartArray[i].cartItems.ItemName ,&cartArray[i].cartItems.ItemPrice ,&cartArray[i].totalPrice);
       }
       rewind(fp);
       for(i=0;i<r;i++)
       {
- 		fprintf(f1,"%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);
-        printf("%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);
-         // printf("\n%d\t%s\t%s\t%d\t%f",e[i].id,e[i].name,e[i].des,e[i].hrs,e[i].salary);
+ 			fprintf(f1,"%d\t%d\t%s\t%d\n",arr[i].orderid,arr[i].itemid,arr[i].Name,arr[i].itemprice);
+			printf("%d\t%d\t%s\t%d\n",arr[i].orderid,arr[i].itemid,arr[i].Name,arr[i].itemprice);
+	      // printf("\n%d\t%s\t%s\t%d\t%f",e[i].id,e[i].name,e[i].des,e[i].hrs,e[i].salary);
           }
       }
 

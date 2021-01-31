@@ -31,6 +31,15 @@ struct Item items[16]={
 					  {15,"co12","Behari Boti",550,"po3",0},
 					  {16,"co13","Rashmi Kabab",600,"po3",0}	  
 					  };
+					  
+struct order_array{
+int orderid;
+int itemid;
+char Name[20];
+int itemprice; 
+int totalprice;
+}arr[100];
+
 
 int check=0;
 void selectChildByParentCode(char code[20]);
@@ -55,7 +64,8 @@ void filterByParent(){
 		
 		if(input == 1){
 			check=1;
-		fileRead();
+		//fileRead();
+		read1();
 		}
 		
 		
@@ -119,6 +129,7 @@ void selectChildById(int Id, char code[20]){
 	if(items[i].Id == Id ){
 		if(items[i].isparent==0){
 			cart(items[i].Id  , items[i].price  , items[i].name);
+			
 		}
 		else{
 		printf("wrong input");

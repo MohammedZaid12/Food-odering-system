@@ -34,13 +34,63 @@ int serial=1,totalPrice=0,status=1,i=0;
 	
 }
 
-void fileRead()
+//void fileRead()
+//{
+//	FILE *fp;
+//	 int r=0,i;
+//	char ch;
+//   fp = fopen(INPUT_FILE,"rb");
+//   if(fp == NULL)
+//    {
+//
+//        printf("\nCan't open file");
+//    }
+//
+//    else
+//    {
+//
+//      do
+//
+//      {
+//          if(feof(fp))
+//          {
+//              break;
+//
+//
+//          }
+//      else
+//      {
+//
+//          ch = fgetc(fp);
+//          if(ch == '\n')
+//          {
+//
+//              r++;
+//          }
+//
+//      }}while(1);
+//     
+//       rewind(fp);
+//	  printf("Your order is\n");
+//      printf("\nID\tItem Id\tItem Name\tPrice\tTotal price\n");
+//		  for(i=0;i<r;i++)
+//      	{	
+//      		fgets(&cartArray[i].cartItems.ItemName ,sizeof(struct Cart) , fp);
+//			printf("%s",cartArray[i].cartItems.ItemName);
+//			
+//        }
+//      }
+// fclose(fp);
+// OrderDisplay();
+//}
+void read1()
+
 {
-	FILE *fp;
-	 int r=0,i;
-	char ch;
-   fp = fopen(INPUT_FILE,"rb");
-   if(fp == NULL)
+    FILE *fp;
+    int r=0,i;
+    fp = fopen(INPUT_FILE,"r");
+    char ch;
+    if(fp == NULL)
     {
 
         printf("\nCan't open file");
@@ -71,20 +121,28 @@ void fileRead()
 
 
       }}while(1);
-     
-       rewind(fp);
-	  printf("Your order is\n");
+      rewind(fp);
+
       printf("\nID\tItem Id\tItem Name\tPrice\tTotal price\n");
-		  for(i=0;i<r;i++)
-      	{	
-      		fgets(&cartArray[i].cartItems.ItemName ,sizeof(struct Cart) , fp);
-			printf("%s",cartArray[i].cartItems.ItemName);
-			
-        }
+
+      for(i=0;i<r;i++)
+      {
+
+          fscanf(fp,"%d\t%d\t%s\t%d\t%d\n",&cartArray[i].cartId, &cartArray[i].cartItems.ItemId , &cartArray[i].cartItems.ItemName , &cartArray[i].cartItems.ItemPrice ,&cartArray[i].totalPrice);
+        printf("%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);
+          }
       }
+
+
  fclose(fp);
- OrderDisplay();
+
+
+
+
+
 }
+
+
 
 
 
