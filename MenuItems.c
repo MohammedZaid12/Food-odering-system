@@ -43,21 +43,18 @@ void filterByParent(){
 	int i ,j, input , serialNumber=1;
 	char name[20];
 	char code[20];
+	printf("\nID\tName\n");
 	for (i=0;i<16;i++){
-		
 		if(items[i].isparent == 1){
 		printf("\n%d\t%s",items[i].Id , items[i].name);
 		}
 	}
-
 	menu();
-	printf("\nPress 1 to exit\nPress 0 to repeat");
+	printf("\nPress 1 to exit\nPress 0 to repeat \n");
 		scanf("%d",&input);
 		
 		if(input == 1){
 			check=1;
-			printf("Your order is\n");
-			fileRead();
 		}
 		
 	}
