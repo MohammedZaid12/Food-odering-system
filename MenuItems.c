@@ -55,7 +55,9 @@ void filterByParent(){
 		
 		if(input == 1){
 			check=1;
+		fileRead();
 		}
+		
 		
 	}
 	

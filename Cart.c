@@ -13,8 +13,8 @@ struct Cart{
 	struct CartItems cartItems;
 	int totalPrice;
 int status;
-};	
-struct Cart cartArray[100];		
+}cartArray[100];	
+//struct Cart cartArray[100];		
 
 
 void cart(int itemId   , int itemPrice  , char itemName[50]){
@@ -31,7 +31,7 @@ int serial=1,totalPrice=0,status=1,i=0;
 	fflush(stdin);
 	fprintf(fp,"%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);	
 	fclose(fp);
-	fileRead();
+	
 }
 
 void fileRead()
@@ -75,7 +75,7 @@ void fileRead()
        rewind(fp);
 	  printf("Your order is\n");
       printf("\nID\tItem Id\tItem Name\tPrice\tTotal price\n");
-	  for(i=0;i<r;i++)
+		  for(i=0;i<r;i++)
       	{	
       		fgets(&cartArray[i].cartItems.ItemName ,sizeof(struct Cart) , fp);
 			printf("%s",cartArray[i].cartItems.ItemName);
@@ -83,6 +83,7 @@ void fileRead()
         }
       }
  fclose(fp);
+ OrderDisplay();
 }
 
 
