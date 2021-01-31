@@ -1,14 +1,17 @@
 struct Order{
-int orderId;
-char** name;
-char** contact;
-char** address;
+char name[20];
+char contact[20];
+char address[50];
 
 struct OrderItem{
 	int itemId;
-	char** itemName;
+	char itemName[20];
 	int price;
 };
+
 int total;
 };
+
+
+
 

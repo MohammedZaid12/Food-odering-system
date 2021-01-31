@@ -55,6 +55,7 @@ void filterByParent(){
 		
 		if(input == 1){
 			check=1;
+			fileRead();
 		}
 		
 	}
@@ -67,7 +68,7 @@ void menu(){
 		int i=0 ,j, input , serialNumber=1 , flag = 0 ;
 		char name[20];
 		char code[20];
-		printf("\nEnter Your Choice \n");
+		printf("\nEnter Id of your choice \n");
 		scanf("%d",&input);
 		while(flag != 1){
 		if(items[i].Id == input){
@@ -102,11 +103,8 @@ void selectChildByParentCode(char code[20]){
 		serialNumber++;
 		fflush(stdin);
 		}
-//		else{
-//				printf("wrong input");
-//		}
 }
-		printf("\nEnter Your choice");
+		printf("\nEnter Id of your choice\n");
 		scanf("%d",&error);
 		selectChildById(error,myCode);
 	
@@ -114,7 +112,7 @@ void selectChildByParentCode(char code[20]){
 void selectChildById(int Id, char code[20]){
 	int i;
 	for (i=0;i<16;i++){
-	if(items[i].Id == Id ){
+	if(items[i].Id == Id){
 		if(items[i].isparent==0){
 			cart(items[i].Id  , items[i].price  , items[i].name);
 		}
