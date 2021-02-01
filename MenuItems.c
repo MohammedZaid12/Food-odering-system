@@ -1,6 +1,6 @@
 #include<stdio.h>  
 #include <string.h>
-#define INPUT_FILE"w.txt"
+#define INPUT_FILE"cart.txt"
 #include<stdlib.h> 
 struct Item{
 	int Id;
@@ -65,6 +65,7 @@ void filterByParent(){
 		if(input == 1){
 			check=1;
 		fileRead();
+	
 		}
 		
 		
@@ -139,3 +140,24 @@ void selectChildById(int Id, char code[20]){
 	
  }
 }
+
+void check_out()
+{
+	int ans;
+printf("Do you want to check out\nYes:1\nNo:0\n");
+scanf("%d",&ans);
+	if (ans==1)
+	{
+		printf("Thank you for the order");
+	}
+	else if (ans==0)
+	{
+		
+     remove(INPUT_FILE"cart.txt");
+     exit(1);
+ 
+	}
+	remove(INPUT_FILE);
+}
+
+

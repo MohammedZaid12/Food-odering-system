@@ -77,7 +77,7 @@ void fileRead(){
         }
         fclose(fp); 
       }
-
+check_out();
 }
 
 void deleteItemsFromCart(int rows){
@@ -173,30 +173,4 @@ int prices=0;
 
 }
 }
-void check_out()
-{
-	int ans;
-printf("Do you want to check out\nYes:1\nNo:0\n");
-scanf("%d",&ans);
-	if (ans==1)
-	{
-		printf("Thank you for the order");
-	}
-	else if (ans==0)
-	{
-		printf("Do you want to select again\nyes=1\nno=0\n");
-		scanf("%d",&ans);
-		if (ans==1)
-		{
-		main();	
-		}
-		else if (ans==0)
-		{
-     remove(INPUT_FILE"cart.txt");
-     exit(1);
- }
-	}
-	remove(INPUT_FILE);
-}
-
 
