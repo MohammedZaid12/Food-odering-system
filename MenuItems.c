@@ -64,8 +64,7 @@ void filterByParent(){
 		
 		if(input == 1){
 			check=1;
-		//fileRead();
-		read1();
+		fileRead();
 		}
 		
 		
