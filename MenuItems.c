@@ -111,7 +111,7 @@ void selectChildByParentCode(char code[20]){
 		int i , input , serialNumber=1,flag=0;	
 		int error;
 		printf("\n-----------------------------------------");
-		printf("\nID\tName\tPrice");
+		printf("\nID\tName\t\tPrice");
 		for (i=0;i<16;i++){
 		if(strcmp(items[i].parentCode , code) == 0){
 		strcpy(myCode,items[i].parentCode);
@@ -123,7 +123,7 @@ void selectChildByParentCode(char code[20]){
 //				printf("wrong input");
 //		}
 }
-		printf("\nEnter Your choice");
+		printf("\nEnter Your choice\n");
 		scanf("%d",&error);
 		selectChildById(error,myCode);
 	
