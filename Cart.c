@@ -14,7 +14,9 @@ struct Cart{
 	struct CartItems cartItems;
 	int totalPrice;
 };	
-struct Cart cartArray[100];		
+struct Cart cartArray[100];	
+	int total;
+	
 void cart(int itemId   , int itemPrice  , char itemName[50]){
 int serial=1,totalPrice=0,status=1,i=0;
 	FILE *fp;
@@ -26,10 +28,11 @@ int serial=1,totalPrice=0,status=1,i=0;
 	cartArray[i].cartItems.ItemPrice = itemPrice;
 	cartArray[i].totalPrice +=itemPrice;
 	fflush(stdin);
+total = cartArray[i].totalPrice;
+
 	fprintf(fp,"%d\t%d\t%s\t%d\t%d\n",cartArray[i].cartId, cartArray[i].cartItems.ItemId , cartArray[i].cartItems.ItemName , cartArray[i].cartItems.ItemPrice ,cartArray[i].totalPrice);	
 	fclose(fp);
 }
-
 void fileRead(){
 	
 	FILE *fp , *f1;
@@ -70,13 +73,15 @@ void fileRead(){
      
        rewind(fp);
 	  printf("Your order is\n");
-      printf("\nID\tItem Id\t\t Item Name\tPrice\tTotal price\n");
+      printf("\nID\tItem Id\t\t Item Name\tPrice\n");
 	  for(i=0;i<r;i++){	
       		fgets(&cartArray[i].cartItems.ItemName ,sizeof(struct Cart) , fp);
 			printf("%s",cartArray[i].cartItems.ItemName);	
         }
         fclose(fp); 
       }
+      
+
 check_out();
 }
 
